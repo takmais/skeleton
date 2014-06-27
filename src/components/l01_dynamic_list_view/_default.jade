@@ -1,0 +1,31 @@
+// L01 - Dynamic List View - Articles - Content Tree
+
+// ** Configurable component
+- var list = {type: 'Article', imgRequired: true};
+
+ul(vocab="http://schema.org/#{list.type}").list-view
+	- for (i = 0; i < 10; i++)
+		li
+			h3(property=(list.type === 'Event') ? 'name' : 'headline'): a(href="#") List View Title
+			div.list-item-body
+				a(href="#").thumbnail: img(src="http://placehold.it/100x75")
+				div.content-wrap
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris congue, iaculis orci eget, interdum eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris congue, iaculis orci eget, interdum eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris congue, iaculis orci eget, interdum eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+					p Sed quis mauris congue, iaculis orci eget, interdum eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris congue, iaculis orci eget, interdum eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris congue, iaculis orci eget, interdum eros.				
+			- if (list.type === 'BlogPosting')
+				p(property="author") Author Name 
+
+			div.dates
+				- if (list.type !== 'Event')
+					time(datetime="2014-07-24", typeof="Date", property="created") Creation Date
+
+				- else
+					time(datetime="2014-07-23", vocab="http://schema.org/startDate", property="") Start Date 
+					time(datetime="2014-07-25", vocab="http://schema.org/endDate", property="") End Date 
+			
+			- if (list.type !== 'Event')
+				ul.tags
+					li(property="keywords"): a(href="") tag 1
+					li(property="keywords"): a(href="") tag 2
+					li(property="keywords"): a(href="") tag 3
+					li(property="keywords"): a(href="") tag 4

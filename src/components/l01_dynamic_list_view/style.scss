@@ -1,0 +1,30 @@
+// L01 - Dynamic List View - Articles - Content Tree
+.list-view {
+	list-style: none;
+	margin: 0;
+
+	.tags {
+		list-style: none;
+		margin: 0;
+		> li {
+			display: inline-block;
+		}
+	}
+
+	.list-item-body {
+		
+	}
+
+	.content-wrap {
+		p:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.thumbnail {
+		float: left;
+		& + .content-wrap {
+			margin-left: 120px;
+		}
+	}
+}
